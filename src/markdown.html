@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>SCRIPTEX Extension Command</title>
+
+<link rel="stylesheet" type="text/css" href="extsyntax.css" />
+
+
+
+
+
+</head>
+
+<body>
+<h1>SCRIPTEX Extension Command</h1>
+
+<p>Run a Python script that can accept parameters</p>
+<div class="syntax">
+<p>SCRIPTEX SCRIPT=&ldquo;<em>file specification</em>&rdquo;<sup>&#42;</sup>  </p>
+
+<p>/PARAMETERS parmname = value parmname = value &hellip;</p>
+
+<p>/HELP</p>
+</div>
+<p>/HELP prints this help and does nothing else.</p>
+<p><strong>file specification</strong> is the name of the Python script to run.</p>
+
+<p>The optional <strong>PARAMETERS</strong> subcommand accepts one or more specifications of the form
+<code>parametername = value</code>
+that will be passed to the script.  Note that the case of the parameter name should match
+the case expected by the script.</p>
+
+<p>In a Python program, it is possible for a script to return a value or values, but this is not
+accessible through regular syntax.</p>
+
+<p>&copy; Copyright IBM Corp. 1989, 2014</p>
+
+</body>
+
+</html>
+
