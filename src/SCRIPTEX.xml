@@ -1,0 +1,8 @@
+<Command xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extension.xsd" Name="SCRIPTEX" Language="Python">
+	<Subcommand Name="" IsArbitrary="False" Occurrence="Optional">
+		<Parameter Name="SCRIPT" ParameterType="InputFile"/>
+		<Parameter Name="HELP" ParameterType="LeadingToken"/>
+	</Subcommand>
+	<Subcommand Name="PARAMETERS" IsArbitrary="True" Occurrence="Optional"/>
+	<Subcommand Name="HELP" Occurrence="Optional"/>
+</Command>
