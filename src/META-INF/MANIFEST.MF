@@ -1,0 +1,14 @@
+Name: SCRIPTEX
+Command-Specs: SCRIPTEX.xml
+Code-Files: scriptwparams.py,SCRIPTEX.py
+Misc-Files: markdown.html,extsyntax.css,IBMdialogicon.png
+Summary: Extension command that can pass parameters to Python scripts
+Description: This module provides a parameter passing mechanism for Py
+ thon scripts run with the SCRIPT command via a PROGRAM and a mechanis
+ m for the script to return a value. The PROGRAM calls the runscript f
+ unction with a parameter dictionary and script name. The script call 
+ the getscriptparams function to retrieve a parameter dictionary
+Author: JKP, IBM SPSS
+Version: 1.0.3
+Product-Version: 18
+Plugins: Python
