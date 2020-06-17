@@ -3,7 +3,7 @@
 # *
 # * IBM SPSS Products: Statistics Common
 # *
-# * (C) Copyright IBM Corp. 1989, 2014
+# * (C) Copyright IBM Corp. 1989, 2020
 # *
 # * US Government Users Restricted Rights - Use, duplication or disclosure
 # * restricted by GSA ADP Schedule Contract with IBM Corp. 
@@ -39,7 +39,7 @@ accessible through regular syntax."""
 def Run(args):
     """Execute the SCRIPTEX command"""
 
-    args = args[args.keys()[0]]
+    args = args[list(args.keys())[0]]
    ###print args   #debug
 
     oobj = Syntax([
@@ -48,7 +48,7 @@ def Run(args):
         Template("HELP", subc="", ktype="bool")])
     
     # A HELP subcommand overrides all else
-    if args.has_key("HELP"):
+    if "HELP" in args:
         #print helptext
         helper()
     else:
@@ -59,13 +59,13 @@ def Run(args):
             args = set(args[: len(args) - len(deflts)])    # the required arguments
             omitted = [item for item in args if not item in oobj.parsedparams]
             if omitted:
-                raise ValueError, "The following required parameters were not supplied:\n" + ", ".join(omitted)
+                raise ValueError("The following required parameters were not supplied:\n" + ", ".join(omitted))
             oobj.parsedparams["params"] = dictFromTokenList(oobj.parsedparams.get("params", {}))
             scriptwparams.runscript(**oobj.parsedparams)
         except:
             # Exception messages are printed here, but the exception is not propagated, and tracebacks are suppressed,
             # because as an Extension command, the Python handling should be suppressed.
-            print "Error:", sys.exc_info()[1]
+            print("Error:", sys.exc_info()[1])
             sys.exc_clear()
         
 def dictFromTokenList(paramlist):
@@ -100,7 +100,7 @@ def helper():
     # webbrowser.open seems not to work well
     browser = webbrowser.get()
     if not browser.open_new(helpspec):
-        print("Help file not found:" + helpspec)    
+        print(("Help file not found:" + helpspec))    
 try:    #override
     from extension import helper
 except:

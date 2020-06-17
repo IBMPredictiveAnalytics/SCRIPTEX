@@ -3,7 +3,7 @@
 # *
 # * IBM SPSS Products: Statistics Common
 # *
-# * (C) Copyright IBM Corp. 1989, 2013
+# * (C) Copyright IBM Corp. 1989, 2020
 # *
 # * US Government Users Restricted Rights - Use, duplication or disclosure
 # * restricted by GSA ADP Schedule Contract with IBM Corp. 
@@ -40,7 +40,7 @@ def runscript(scriptname, params={}):
     
     fnparams = tempfile.gettempdir() + os.sep + "__SCRIPT__"
     fnreturn = tempfile.gettempdir() + os.sep + "__SCRIPTRETURN__"
-    f = file(fnparams, "w+")
+    f = open(fnparams, "w+")
     # ensure file size is 4096 for *nix os's.
     f.write(1024*"0000")
     f.flush()
@@ -69,7 +69,7 @@ def runscript(scriptname, params={}):
     # get the return value, if any
     ###import wingdbstub
     try:
-        f = file(fnreturn, "r")
+        f = open(fnreturn, "r")
         shmem = mmap.mmap(f.fileno(), 4096, access=mmap.ACCESS_READ)
         ret = pickle.loads(shmem.read(4096))
         shmem.close()
@@ -93,7 +93,7 @@ def getscriptparams():
     fnparams = tempfile.gettempdir() + os.sep + "__SCRIPT__"
     fnreturn = tempfile.gettempdir() + os.sep + "__SCRIPTRETURN__"
     try:
-        f = file(fnparams, "r")
+        f = open(fnparams, "r")
         shmem = mmap.mmap(f.fileno(), 4096, access=mmap.ACCESS_READ)
         ps = shmem.read(4096)
         try:
@@ -120,7 +120,7 @@ def setreturnvalue(returns):
     If no return value is set, retrieving it will produce an empty dictionary."""
     
     fnreturn = tempfile.gettempdir() + os.sep + "__SCRIPTRETURN__"
-    f = file(fn, "w+")
+    f = file(fnreturn, "w+")
     # ensure file size is 4096 for *nix os's.
     f.write(1024*"0000")
     f.flush()
