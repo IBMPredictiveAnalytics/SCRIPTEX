@@ -1,4 +1,5 @@
 Name: SCRIPTEX
+Display-Name: Python scripts
 Command-Specs: SCRIPTEX.xml
 Code-Files: scriptwparams.py,SCRIPTEX.py
 Misc-Files: extsyntax.css,IBMdialogicon.png,markdown.html
